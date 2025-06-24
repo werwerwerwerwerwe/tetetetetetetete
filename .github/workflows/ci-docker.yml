@@ -14,8 +14,7 @@ jobs:
 
   docker:
     name: Build & Push Docker Image (ARM64)
-    runs-on:
-      - self-hosted
+    runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && success()
 
     permissions:
