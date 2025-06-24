@@ -11,9 +11,8 @@ env:
   PYTHON_VERSION: "3.10"
 
 jobs:
-
   docker:
-    name: Build & Push Docker Image (ARM64)
+    name: Build & Push Docker Image
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && success()
 
@@ -38,7 +37,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}
 
-      - name: Build and push Docker image (ARM64)
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
